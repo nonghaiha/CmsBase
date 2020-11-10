@@ -177,6 +177,9 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        //Cms Service Provider
+        Cms\CmsServiceProvider::class,
+
     ],
 
     /*
