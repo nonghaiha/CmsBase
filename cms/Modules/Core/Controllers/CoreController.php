@@ -11,7 +11,7 @@ class CoreController extends Controller
         if (Auth::user()){
             return redirect()->route('admin.index');
         }else{
-            return redirect()->route('login');
+            return view('Core::views.welcome');
         }
     }
 }
