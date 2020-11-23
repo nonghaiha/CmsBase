@@ -13,9 +13,18 @@ class CreateTableMedia extends Migration
      */
     public function up()
     {
-        Schema::create('table_media', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->string('file_name');
+            $table->integer('is_thumbnail');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('posts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

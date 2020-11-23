@@ -13,9 +13,11 @@ class CreateTableTag extends Migration
      */
     public function up()
     {
-        Schema::create('table_tag', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title');
+            $table->string('meta_title');
+            $table->string('slug');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateTableTag extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_tag');
+        Schema::dropIfExists('tags');
     }
 }

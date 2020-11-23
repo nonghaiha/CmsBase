@@ -13,9 +13,17 @@ class CreateTablePosts extends Migration
      */
     public function up()
     {
-        Schema::create('table_posts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->text('content');
+            $table->string('slug')->nullable();
+            $table->text('title');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -26,6 +34,6 @@ class CreateTablePosts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_posts');
+        Schema::dropIfExists('posts');
     }
 }
