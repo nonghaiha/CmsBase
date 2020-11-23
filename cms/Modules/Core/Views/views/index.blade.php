@@ -1,4 +1,5 @@
 @extends('Core::views.master')
+@section('title','My Blog Dashboard')
 @section('body')
     <div class="page-content">
         <div class="container-fluid">

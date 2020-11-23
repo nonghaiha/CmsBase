@@ -15,7 +15,7 @@ class AddSocialLoginToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('social_id')->nullable();
-            $table->string('login_type');
+            $table->string('login_type')->nullable();
         });
     }
 
